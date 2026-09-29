@@ -1,0 +1,129 @@
+:root {
+  --fondo: #eef2f6;
+  --tinta: #1b2733;
+  --linea: #1b2733;
+  --celda-hover: #dde6f0;
+  --ficha-x: #2f5bea;
+  --ficha-o: #e0457b;
+  --ganadora: #ffe28a;
+  --boton: #1b2733;
+  --boton-texto: #eef2f6;
+}
+
+body.oscuro {
+  --fondo: #0f1620;
+  --tinta: #e6edf5;
+  --linea: #5b6b7d;
+  --celda-hover: #1a2532;
+  --ficha-x: #7fa2ff;
+  --ficha-o: #ff86b0;
+  --ganadora: #4a3d12;
+  --boton: #e6edf5;
+  --boton-texto: #0f1620;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+.juego {
+  width: min(92vw, 380px);
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.2rem;
+  letter-spacing: 0.02em;
+}
+
+#estado {
+  min-height: 1.5em;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+#tablero {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 1rem 0;
+}
+
+.celda {
+  aspect-ratio: 1;
+  border: 0 solid var(--linea);
+  border-width: 0 3px 3px 0;
+  background: transparent;
+  font: inherit;
+  font-size: clamp(2.5rem, 16vw, 4rem);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.celda:nth-child(3n) {
+  border-right-width: 0;
+}
+
+.celda:nth-child(n + 7) {
+  border-bottom-width: 0;
+}
+
+.celda:not(:disabled):hover {
+  background: var(--celda-hover);
+}
+
+.celda:disabled {
+  cursor: default;
+}
+
+.celda.x {
+  color: var(--ficha-x);
+}
+
+.celda.o {
+  color: var(--ficha-o);
+}
+
+.celda.ganadora {
+  background: var(--ganadora);
+}
+
+.acciones {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--ficha-x);
+  outline-offset: 2px;
+}
+
+.acciones button {
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--boton);
+  color: var(--boton-texto);
+  font: inherit;
+  cursor: pointer;
+}
+
+.ayuda {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
