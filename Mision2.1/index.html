@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brawl Dex</title>
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Brawl Dex</h1>
+        <p>Todos los brawlers de Brawl Stars, directos desde la API.</p>
+      </header>
+      <section class="controles">
+        <input id="busqueda" type="search" placeholder="Buscar brawler…" />
+        <select id="clase" aria-label="Clase"></select>
+        <select id="orden" aria-label="Organizar por">
+          <option value="rareza">Agrupar por rareza</option>
+          <option value="nombre">Nombre (A-Z)</option>
+        </select>
+      </section>
+      <section id="resumen" class="resumen"></section>
+      <section id="estado" class="estado" aria-live="polite"></section>
+      <section id="lista"></section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
